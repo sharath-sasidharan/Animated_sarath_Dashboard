@@ -8,15 +8,27 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  --textColor: #2d3436;
+  --headColor: #2d3436;
+  --headerColor: #fafafa;
+  --menu-color: #fff;
+  --navMenuSticky: #636e72;
+  --themeColor: #636e72;
+}
 /* Reset Stytes */
 a {
   text-decoration: none;
 }
 
-/* Testing body-height */
-/* body {
-  min-height: 1000000px;
-} */
+body.active {
+  background-color: #2d3436;
+  --textColor: #fafafa;
+  --headColor: #fafafa;
+  --headerColor: #2d3436;
+  --logoName: #fafafa;
+  --navMenuSticky: #fafafa;
+}
 
 /* header style */
 
@@ -31,18 +43,25 @@ header {
   align-items: center;
   transition: 0.5s;
 }
+
+.second {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 header.sticky {
   padding: 10px 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-  background: #fff;
+  background: var(--headerColor);
   transition: 0.5s;
   z-index: 11111;
 }
+
 header h1 {
   padding: 0 25px;
 }
 header.sticky h1 a {
-  color: #000;
+  color: var(--logoName);
 }
 header h1 a {
   color: #fff;
@@ -54,7 +73,7 @@ header h1 a span {
 
 /* navigation */
 nav {
-  margin: 0 15px;
+  margin: 0 30px;
 }
 nav ul {
   display: flex;
@@ -65,14 +84,19 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #fff;
+  color: var(--menu-color);
 }
 
 header.sticky nav ul li a {
-  color: #000;
+  color: var(--navMenuSticky);
 }
+
 header.sticky nav ul li a:hover {
   color: #3498db;
+}
+
+header.sticky .fas {
+  color: var(--themeColor);
 }
 
 nav ul li a:hover {
@@ -127,7 +151,6 @@ nav ul li a:hover {
   flex: 1;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   position: relative;
   height: 100%;
 }
@@ -156,6 +179,10 @@ nav ul li a:hover {
   margin-right: 2%;
 }
 
+.right .about_content h2 {
+  text-transform: capitalize;
+  color: var(--headColor);
+}
 .right .about_content h2::first-letter {
   font-size: 3.5em;
   font-weight: 300;
@@ -177,6 +204,7 @@ nav ul li a:hover {
 .about_content p {
   text-align: justify;
   line-height: 30px;
+  color: var(--textColor);
 }
 
 /* Service  */
@@ -253,4 +281,20 @@ nav ul li a:hover {
 
 .card .service_content i {
   font-size: 3.5em;
+}
+
+/* Dark theme */
+
+.fas {
+  /* border: 1px solid red; */
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 5px;
+  margin-right: 2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#theme-btn.fa-sun {
+  transform: rotate(45deg);
 }
